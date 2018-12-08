@@ -7,12 +7,12 @@ USE foodshare_db;
 CREATE TABLE users
 (
     username VARCHAR(30) NOT NULL,
-
-    zip_code INTEGER(30),
-
+    
     passcode VARCHAR(30),
 
     user_id INTEGER(15),
+
+    email VARCHAR(100) NOT NULL,
 
     user_type CHARACTER
     (20)

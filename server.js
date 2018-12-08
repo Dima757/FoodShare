@@ -5,6 +5,7 @@ var mysql = require("mysql");
 // var inquirer = require("inquirer");
 
 var app = express();
+app.use(express.static("public"));
 var PORT = process.env.PORT || 3000;
 
 var connection = mysql.createConnection({
@@ -31,11 +32,13 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
 
-app.post('/submit', (err, res) => {
-	console.log(req.body)
+app.post('/submit', (req, res) => {
+  console.log(req.body.firstName);
+  var user = req.body;
+  res.send("hi there " + user.firstName)
 });
 
-app.get('/getUsers', (err, res) => {
+app.get('/getUsers', (req, res) => {
   console.log('hit endpoint')
   var data = connection.query('SELECT * FROM users', function (err, res) {
     if (err) throw err;
