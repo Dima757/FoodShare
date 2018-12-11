@@ -10,27 +10,23 @@ CREATE TABLE users
     
     passcode VARCHAR(30),
 
-    user_id INTEGER(15),
-
     email VARCHAR(100) NOT NULL,
 
-    user_type CHARACTER
-    (20)
 );
 
     Insert into users
-        (username, zip_code, passcode, user_id,user_type)
+        (username, email, passcode)
     VALUES
-        ("John", 75181, "password1", 1, "cook")
+        ("John", TheDude@gmail.com, "password1")
 
     Insert into users
-        (username, zip_code, passcode, user_id,user_type)
+        (username, email, passcode)
     VALUES
-        ("Billy", 75150, "password2", 2, "buyer")
+        ("Billy", TheOtherGuy@gmail.com, "password2")
 
     Insert into users
-        (username, zip_code, passcode, user_id,user_type)
+        (username, email, passcode)
     VALUES
-        ("Miguel", 75149, "password3", 3, "buyer")
+        ("Miguel", HungryMan2000@gmail.com, "password3")
 
     
