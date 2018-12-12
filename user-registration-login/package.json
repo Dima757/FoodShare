@@ -1,0 +1,10 @@
+{
+  "name": "",
+  "version": "",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cryptr": "^4.0.2",
+    "express": "^4.16.4",
+    "nodemon": "^1.18.7"
+  }
+}
