@@ -1,6 +1,6 @@
-$(document).ready(function() {
-    
-    $('#registration-page').on('submit', function() {
+$(document).ready(function () {
+
+    $('#registration-page').on('submit', function () {
         event.preventDefault();
 
         var userName = $('#userName').val();
@@ -13,9 +13,16 @@ $(document).ready(function() {
             email: email
         };
 
-        $.post("/registerUser", userObject, function(data) {    
-            console.log(data);
-            window.location.href = "/registration-success";
+        $.post("/registerUser", userObject, function (data) {
+            if (data) {
+                console.log("success");
+                console.log(data);
+                alert("Registration Successful");
+            } else {
+                console.log("error");
+                alert("Error! Please Try Again");
+            }
+
         });
 
     });

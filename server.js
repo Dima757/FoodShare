@@ -38,20 +38,15 @@ app.post('/submit', (req, res) => {
   res.send("hi there " + user.firstName)
 });
 
-app.get('/getUsers', (req, res) => {
-  console.log('hit endpoint')
-  var data = connection.query('SELECT * FROM users', function (err, res) {
-    if (err) throw err;
-
-    for (i = 0; i < res.length; i++) {
-        console.log('username' + res[i].username + ' zip_code ' + res[i].zip_code + 'passcode ' + res[i].passcode + 'user_id ' + res[i].user_id + 'user_type ' + res[i].type )
-    }
-    console.log(JSON.stringify(res), 'response')
-})
-console.log(data, 'data')
-res.send(JSON.stringify(data));
-});
+require("./routes/api-routes.js")(app);
+require("./routes/html-routes.js")(app);
 
 app.listen(PORT, function () {
   console.log('App listening on PORT: ' + PORT);
+});
+
+db.sequelize.sync({ force: true }).then(function() {
+  app.listen(PORT, function() {
+    console.log("App listening on PORT " + PORT);
+  });
 });
